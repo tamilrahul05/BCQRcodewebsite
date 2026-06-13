@@ -113,20 +113,7 @@ body {
     object-fit: contain;
 }
 
-/* Spinner inside loaders */
-.image-loading-spinner {
-    width: 24px;
-    height: 24px;
-    border: 2.5px solid rgba(0, 0, 0, 0.06);
-    border-top-color: #00c853;
-    border-radius: 50%;
-    animation: imageSpin 0.8s infinite linear;
-    position: absolute;
-}
 
-@keyframes imageSpin {
-    to { transform: rotate(360deg); }
-}
 
 /* Links List Stack */
 .links-stack {
@@ -137,6 +124,7 @@ body {
 
 /* Link Card Row */
 .link-card {
+    text-decoration: none;
     background-color: var(--card-white);
     border-radius: 16px;
     padding: 0.95rem 1.1rem;
@@ -199,281 +187,23 @@ body {
     color: var(--text-dark);
     flex-grow: 1;
     text-align: center;
-    margin-right: 44px; /* Matches width of left-box exactly to center-align the text */
 }
 
-/* Right Menu Trigger Button */
-.menu-btn-wrapper {
-    position: relative;
-    z-index: 10;
-}
-
-.menu-trigger {
-    background: none;
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
+/* Right Arrow Chevron */
+.right-arrow {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: var(--text-light);
-    font-size: 1.15rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s, color 0.2s;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.menu-trigger:hover {
-    background-color: #f3f4f6;
+.link-card:hover .right-arrow {
+    transform: translateX(4px);
     color: var(--text-dark);
-}
-
-/* Dropdown Menu styling */
-.dropdown-menu {
-    position: absolute;
-    right: 0;
-    top: calc(100% + 5px);
-    background-color: var(--card-white);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    z-index: 100;
-    width: 180px;
-    padding: 0.4rem 0;
-    display: none; /* Toggled by JavaScript */
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.dropdown-menu.show {
-    display: flex;
-    animation: dropdownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes dropdownFade {
-    from {
-        opacity: 0;
-        transform: translateY(-8px) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.dropdown-item {
-    background: none;
-    border: none;
-    width: 100%;
-    padding: 0.65rem 1rem;
-    text-align: left;
-    font-family: inherit;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #4b5563;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.dropdown-item:hover {
-    background-color: #f3f4f6;
-    color: var(--text-dark);
-}
-
-.dropdown-item i {
-    width: 16px;
-    font-size: 0.95rem;
-    text-align: center;
-    color: var(--text-light);
-    transition: color 0.2s;
-}
-
-.dropdown-item:hover i {
-    color: var(--text-dark);
-}
-
-/* Modal Popup Backdrop */
-.modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(15, 23, 42, 0.5);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    z-index: 1000;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    padding: 1.5rem;
-}
-
-.modal-backdrop.show {
-    display: flex;
-}
-
-/* Modal Card */
-.modal-card {
-    background-color: var(--card-white);
-    border-radius: 28px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    max-width: 380px;
-    padding: 2.2rem 1.8rem 1.8rem;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transform: scale(0.9);
-    opacity: 0;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.15), opacity 0.3s ease;
-}
-
-.modal-backdrop.show .modal-card {
-    transform: scale(1);
-    opacity: 1;
-}
-
-/* Close Button */
-.modal-close-btn {
-    position: absolute;
-    top: 1.2rem;
-    right: 1.2rem;
-    background-color: #f3f4f6;
-    border: none;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    color: var(--text-muted);
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.modal-close-btn:hover {
-    background-color: #e5e7eb;
-    color: var(--text-dark);
-}
-
-/* Modal Content Details */
-.modal-header {
-    margin-bottom: 1.5rem;
-    width: 100%;
-}
-
-.modal-platform-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    margin: 0 auto 0.8rem;
-}
-
-.modal-header h3 {
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 0.15rem;
-}
-
-.modal-subtitle {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-}
-
-/* QR code viewer */
-.modal-qr-container {
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 20px;
-    width: 210px;
-    height: 210px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
-    position: relative;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.01), 0 8px 20px rgba(0, 0, 0, 0.03);
-    margin-bottom: 1.8rem;
-}
-
-.modal-qr-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* Spinner for QR code rendering */
-.spinner {
-    width: 28px;
-    height: 28px;
-    border: 3px solid rgba(0, 0, 0, 0.08);
-    border-top-color: var(--text-dark);
-    border-radius: 50%;
-    animation: spin 0.8s infinite linear;
-    position: absolute;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* Modal Buttons */
-.modal-footer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-}
-
-.btn-modal {
-    width: 100%;
-    padding: 0.8rem 1.2rem;
-    border-radius: 12px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    font-family: inherit;
-    transition: background-color 0.2s, transform 0.1s;
-    border: none;
-}
-
-.btn-modal:active {
-    transform: scale(0.98);
-}
-
-.btn-modal-visit {
-    background-color: #00c853;
-    color: #ffffff;
-}
-
-.btn-modal-visit:hover {
-    background-color: #00a844;
-}
-
-.btn-modal-download {
-    background-color: #f3f4f6;
-    color: #374151;
-    border: 1px solid #e5e7eb;
-}
-
-.btn-modal-download:hover {
-    background-color: #e5e7eb;
 }
 
 /* Animations */
@@ -504,13 +234,6 @@ body {
 /* Helpers */
 .hidden {
     display: none !important;
-}
-
-.hidden-qr-pool {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-    visibility: hidden;
 }
 
 /* Media Queries for Perfect Responsiveness (Mobile, Tablet, Laptop) */
@@ -555,29 +278,11 @@ body {
     }
     .link-label {
         font-size: 1rem;
-        margin-right: 38px; /* Balanced by the left-box width */
     }
-    .menu-trigger {
-        width: 32px;
-        height: 32px;
-        font-size: 1rem;
-    }
-    .dropdown-menu {
-        width: 160px;
-    }
-    .dropdown-item {
-        padding: 0.55rem 0.85rem;
-        font-size: 0.85rem;
-    }
-    .modal-card {
-        padding: 1.8rem 1.4rem 1.4rem;
-        border-radius: 20px;
-    }
-    .modal-qr-container {
-        width: 180px;
-        height: 180px;
-        padding: 10px;
-        margin-bottom: 1.4rem;
+    .right-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
     }
 }
 
