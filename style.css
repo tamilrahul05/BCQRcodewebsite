@@ -1,0 +1,601 @@
+/* General Styling Reset & Variables */
+:root {
+    --bg-main: #f0f2f5;
+    --card-white: #ffffff;
+    --text-dark: #1f2937;
+    --text-muted: #6b7280;
+    --text-light: #9ca3af;
+    --border-light: rgba(0, 0, 0, 0.04);
+    
+    /* Brand Accent Colors */
+    --instagram-color: #e1306c;
+    --youtube-color: #ff0000;
+    --whatsapp-color: #25d366;
+    --facebook-color: #1877f2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+}
+
+/* Linktree Layout Wrapper */
+.linktree-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 1.5rem auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Logo Header Card */
+.logo-card {
+    background-color: var(--card-white);
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid var(--border-light);
+}
+
+/* Circular Avatar Ring for Baba (Right) */
+.avatar-wrapper {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background-color: var(--card-white);
+    border: 3px solid #00c853; /* Vibrant green border matching catering logo */
+    box-shadow: 0 6px 18px rgba(0, 200, 83, 0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.avatar-wrapper:hover {
+    transform: scale(1.04);
+}
+
+.baba-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Circular crops work best with cover */
+    object-position: center 20%; /* Centers Sai Baba's face perfectly */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.02));
+}
+
+/* Vertical divider between Logo and Baba */
+.header-row-divider {
+    width: 1px;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+}
+
+/* Container for Logo (Left) */
+.logo-wrapper-header {
+    width: 125px;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.logo-wrapper-header:hover {
+    transform: scale(1.04);
+}
+
+.brand-logo-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Spinner inside loaders */
+.image-loading-spinner {
+    width: 24px;
+    height: 24px;
+    border: 2.5px solid rgba(0, 0, 0, 0.06);
+    border-top-color: #00c853;
+    border-radius: 50%;
+    animation: imageSpin 0.8s infinite linear;
+    position: absolute;
+}
+
+@keyframes imageSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* Links List Stack */
+.links-stack {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Link Card Row */
+.link-card {
+    background-color: var(--card-white);
+    border-radius: 16px;
+    padding: 0.95rem 1.1rem;
+    margin-bottom: 0.85rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.015);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid var(--border-light);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.link-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.link-card:active {
+    transform: translateY(0);
+}
+
+/* Left Brand Box */
+.left-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.35rem;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+    flex-shrink: 0;
+}
+
+/* Pastel Brand Backgrounds & Colors */
+.instagram-box {
+    background-color: #fff0f3;
+    color: var(--instagram-color);
+}
+.youtube-box {
+    background-color: #ffebeb;
+    color: var(--youtube-color);
+}
+.whatsapp-box {
+    background-color: #e8f8f0;
+    color: var(--whatsapp-color);
+}
+.facebook-box {
+    background-color: #e8f2fe;
+    color: var(--facebook-color);
+}
+
+/* Center Text - Centered perfectly */
+.link-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    flex-grow: 1;
+    text-align: center;
+    margin-right: 44px; /* Matches width of left-box exactly to center-align the text */
+}
+
+/* Right Menu Trigger Button */
+.menu-btn-wrapper {
+    position: relative;
+    z-index: 10;
+}
+
+.menu-trigger {
+    background: none;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: var(--text-light);
+    font-size: 1.15rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.menu-trigger:hover {
+    background-color: #f3f4f6;
+    color: var(--text-dark);
+}
+
+/* Dropdown Menu styling */
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 5px);
+    background-color: var(--card-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    z-index: 100;
+    width: 180px;
+    padding: 0.4rem 0;
+    display: none; /* Toggled by JavaScript */
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.dropdown-menu.show {
+    display: flex;
+    animation: dropdownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.dropdown-item {
+    background: none;
+    border: none;
+    width: 100%;
+    padding: 0.65rem 1rem;
+    text-align: left;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #4b5563;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #f3f4f6;
+    color: var(--text-dark);
+}
+
+.dropdown-item i {
+    width: 16px;
+    font-size: 0.95rem;
+    text-align: center;
+    color: var(--text-light);
+    transition: color 0.2s;
+}
+
+.dropdown-item:hover i {
+    color: var(--text-dark);
+}
+
+/* Modal Popup Backdrop */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.modal-backdrop.show {
+    display: flex;
+}
+
+/* Modal Card */
+.modal-card {
+    background-color: var(--card-white);
+    border-radius: 28px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 380px;
+    padding: 2.2rem 1.8rem 1.8rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.15), opacity 0.3s ease;
+}
+
+.modal-backdrop.show .modal-card {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Close Button */
+.modal-close-btn {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background-color: #f3f4f6;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: var(--text-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.modal-close-btn:hover {
+    background-color: #e5e7eb;
+    color: var(--text-dark);
+}
+
+/* Modal Content Details */
+.modal-header {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.modal-platform-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    margin: 0 auto 0.8rem;
+}
+
+.modal-header h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.15rem;
+}
+
+.modal-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* QR code viewer */
+.modal-qr-container {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    width: 210px;
+    height: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.01), 0 8px 20px rgba(0, 0, 0, 0.03);
+    margin-bottom: 1.8rem;
+}
+
+.modal-qr-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Spinner for QR code rendering */
+.spinner {
+    width: 28px;
+    height: 28px;
+    border: 3px solid rgba(0, 0, 0, 0.08);
+    border-top-color: var(--text-dark);
+    border-radius: 50%;
+    animation: spin 0.8s infinite linear;
+    position: absolute;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Modal Buttons */
+.modal-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.btn-modal {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.2s, transform 0.1s;
+    border: none;
+}
+
+.btn-modal:active {
+    transform: scale(0.98);
+}
+
+.btn-modal-visit {
+    background-color: #00c853;
+    color: #ffffff;
+}
+
+.btn-modal-visit:hover {
+    background-color: #00a844;
+}
+
+.btn-modal-download {
+    background-color: #f3f4f6;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+}
+
+.btn-modal-download:hover {
+    background-color: #e5e7eb;
+}
+
+/* Animations */
+.animate-fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Helpers */
+.hidden {
+    display: none !important;
+}
+
+.hidden-qr-pool {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    visibility: hidden;
+}
+
+/* Media Queries for Perfect Responsiveness (Mobile, Tablet, Laptop) */
+
+/* Tablets and small laptops */
+@media (max-width: 768px) {
+    body {
+        padding: 1.5rem 0.75rem;
+    }
+    .linktree-container {
+        margin: 0.5rem auto;
+    }
+}
+
+/* Mobile Screens */
+@media (max-width: 480px) {
+    .logo-card {
+        padding: 1.2rem;
+        gap: 0.5rem;
+    }
+    .avatar-wrapper {
+        width: 100px;
+        height: 100px;
+        border-width: 2.5px;
+    }
+    .logo-wrapper-header {
+        width: 100px;
+        height: 100px;
+    }
+    .header-row-divider {
+        height: 55px;
+    }
+    .link-card {
+        padding: 0.8rem 0.9rem;
+        margin-bottom: 0.7rem;
+    }
+    .left-box {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        font-size: 1.2rem;
+    }
+    .link-label {
+        font-size: 1rem;
+        margin-right: 38px; /* Balanced by the left-box width */
+    }
+    .menu-trigger {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+    .dropdown-menu {
+        width: 160px;
+    }
+    .dropdown-item {
+        padding: 0.55rem 0.85rem;
+        font-size: 0.85rem;
+    }
+    .modal-card {
+        padding: 1.8rem 1.4rem 1.4rem;
+        border-radius: 20px;
+    }
+    .modal-qr-container {
+        width: 180px;
+        height: 180px;
+        padding: 10px;
+        margin-bottom: 1.4rem;
+    }
+}
+
+/* Very Small Mobile Screens */
+@media (max-width: 360px) {
+    .avatar-wrapper {
+        width: 85px;
+        height: 85px;
+        border-width: 2px;
+    }
+    .logo-wrapper-header {
+        width: 85px;
+        height: 85px;
+    }
+    .header-row-divider {
+        height: 45px;
+    }
+    .link-label {
+        font-size: 0.92rem;
+    }
+}
